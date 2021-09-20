@@ -31,7 +31,7 @@
 
 <meta name="generator" content="Hexo 5.4.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 
@@ -631,8 +631,9 @@
 <p>2021/8/27 二叉树 今天状态不好，刷几道简单题 二叉树不进行。晚睡状态太差了。</p>
 <p>2021/8/28 二叉树 小问题，map的顺序。26，27，28，29，30，31(迭代法先没写，二刷再写) 昨晚睡的还行，状态好很多。麻了。106道题了，今天的每日一题，真的太简单了。</p>
 <p>2021/8/29 完成二叉树，只剩最后三道题了。leetcode669 这道题玩我，为什么会有奇怪的输入递归可以通过但是输入还是报错？？迭代法就不行？？。问题找到了。108只写了递归法（迭代法留到二刷）。二叉树全部习题结束。</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> {</span><span class="comment">//迭代法，未通过代码。问题已经找到，是什么呢？？！！！！！！</span></span><br><span class="line">        <span class="keyword">while</span> (root != <span class="literal">nullptr</span> &amp;&amp; root-&gt;val &lt; low || root-&gt;val &gt; high)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-
+<pre class=" language-C++"><code class="language-C++">class Solution {//迭代法，未通过代码。问题已经找到，是什么呢？？！！！！！！
+        while (root != nullptr && root->val < low || root->val > high)
+</code></pre>
 <h2 id="回溯算法-一轮用时3天-麻了9-6已经把回溯忘完了。"><a href="#回溯算法-一轮用时3天-麻了9-6已经把回溯忘完了。" class="headerlink" title="回溯算法 一轮用时3天 麻了9.6已经把回溯忘完了。"></a>回溯算法 一轮用时3天 麻了9.6已经把回溯忘完了。</h2><p>2021/8/30 开始回溯算法1，2，3，4，5，，7，8进行了8节，然后做了5道题，题目思路想法较为统一，熟练掌握即可。解决了115道题了。</p>
 <p>2021/8/31 回溯算法 9，10，11，，13，14，15，16 完成，已经完成122道题。</p>
 <p>2021/9/1 回溯算法 18，19，20，21。最后四道题，周末总结都没做。18昨天都写过，不写。22周末总结先不看。</p>
