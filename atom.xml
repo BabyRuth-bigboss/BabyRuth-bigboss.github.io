@@ -6,7 +6,7 @@
   <link href="http://babyruth-bigboss.github.io/atom.xml" rel="self"/>
   
   <link href="http://babyruth-bigboss.github.io/"/>
-  <updated>2021-09-22T10:12:46.015Z</updated>
+  <updated>2021-09-22T13:44:03.535Z</updated>
   <id>http://babyruth-bigboss.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>详谈const in C++</title>
+    <link href="http://babyruth-bigboss.github.io/2021/09/22/xiang-tan-const-in-c/"/>
+    <id>http://babyruth-bigboss.github.io/2021/09/22/xiang-tan-const-in-c/</id>
+    <published>2021-09-22T13:42:06.000Z</published>
+    <updated>2021-09-22T13:44:03.535Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;const&quot;&gt;&lt;a href=&quot;#const&quot; class=&quot;headerlink&quot; title=&quot;const&quot;&gt;&lt;/a&gt;const&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;学习C++那些事的个人笔记，原项目链接&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="C++" scheme="http://babyruth-bigboss.github.io/categories/C/"/>
+    
+    
+    <category term="C++" scheme="http://babyruth-bigboss.github.io/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>算法学习日历</title>
