@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>函数模板封装排序算法</title>
+      <link href="/2021/09/26/han-shu-mo-ban-feng-zhuang-kuai-su-pai-xu-he-gui-bing-pai-xu/"/>
+      <url>/2021/09/26/han-shu-mo-ban-feng-zhuang-kuai-su-pai-xu-he-gui-bing-pai-xu/</url>
+      
+        <content type="html"><![CDATA[<h1 id="随笔"><a href="#随笔" class="headerlink" title="随笔"></a>随笔</h1><p>先直接给出我写的测试代码</p><pre class=" language-C++"><code class="language-C++">/* ************************************************************************> File Name:     template.cpp> Author:        babyruth> Created Time:  Sun Sep 26 21:15:18 2021> Description:   使用函数模板封装快速排序和归并排序 ************************************************************************/#include<iostream>using namespace std;const int N = 1e6 + 10;template<typename T>void mySwap(T& a, T& b) {    T temp = a;    a = b;    b = temp;}template<typename T>void quick_sort(T q[], int l, int r) {    if (l >= r) return;    int i = l - 1, j = r + 1, x = q[l + r >> 1];    while (i < j) {        do i++; while (q[i] < x);        do j--; while (q[j] > x);        if (i < j)  mySwap(q[i], q[j]);    }    quick_sort(q, l, j), quick_sort(q, j + 1, r);}template<typename T>void merge_sort(T q[], T temp[], int l, int r) {    if (l >= r) return;    int mid = l + r >> 1;    merge_sort(q, temp, l, mid);    merge_sort(q, temp, mid + 1, r);    int k = 0, i = l, j = mid + 1;    while (i <= mid && j <= r) {        if (q[i] <= q[j])   temp[k++] = q[i++];        else temp[k++] = q[j++];    }    while (i <= mid)    temp[k++] = q[i++];    while (j <= r)  temp[k++] = q[j++];    for (i = l, j = 0; i <= r; i++, j++)    q[i] = temp[j];}template<typename T>void printArr(T arr[], int l, int r) {    for (int i = 0; i < r; i++) {        cout << arr[i] << " ";    }    cout << endl;    cout << "数组中的元素个数为 "<< r << endl;}void test01() {    char charArr[] = "bagdakfasd";    int size = sizeof(charArr) / sizeof(char);    cout << "快速排序" << endl;    quick_sort(charArr, 0, size - 2);    printArr(charArr, 0, size - 2);    //有一个空字符}void test02() {    int intArr[] = { 1, 5, 6, 3, 7, 4, 8, 9};    int size = sizeof(intArr) / sizeof(int);    quick_sort(intArr, 0, size - 1);        cout << "快速排序" << endl;    printArr(intArr, 0, size - 1);    }void test03() {    char charArr[] = "bagdakfasd";    int size = sizeof(charArr) / sizeof(char);    char temp[N];    cout << "归并排序" << endl;    merge_sort(charArr, temp, 0, size - 2);    printArr(charArr, 0, size - 2);    //有一个空字符}void test04() {    int intArr[] = { 1, 5, 6, 3, 7, 4, 8, 9};    int size = sizeof(intArr) / sizeof(int);    int temp[N];    cout << "归并排序" << endl;    merge_sort(intArr, temp, 0, size - 1);    printArr(intArr, 0, size - 1);    }int main() {    test01();    test03();    test02();    test04();    return 0;}</code></pre><p>Linux下输入</p><pre class=" language-bash"><code class="language-bash">g++ template.cpp -o <span class="token function">test</span> <span class="token operator">&amp;&amp;</span> ./test</code></pre><p>得到输出为</p><pre class=" language-bash"><code class="language-bash">快速排序a a a b d d f g k 数组中的元素个数为 9归并排序a a a b d d f g k 数组中的元素个数为 9快速排序1 3 4 5 6 7 8 数组中的元素个数为 7归并排序1 3 4 5 6 7 8 数组中的元素个数为 7</code></pre><blockquote><p>使用函数模板必须确定出通用的数据类型T，并且可以推导出一致的类型</p><p>模板必须要确定出T的数据类型，才可以使用</p></blockquote><p>C++中我们使用函数模板有两种方式：自动类型推导和显示制定类型</p><p>我在上述代码中使用的是自动类型推导，不过建议是使用显示指定类型的方式，例如将<code>test01</code> 函数中的函数调用的表达式加上制定的类型，如下</p><pre class=" language-C++"><code class="language-C++">void test01() {    char charArr[] = "bagdakfasd";    int size = sizeof(charArr) / sizeof(char);    cout << "快速排序" << endl;    quick_sort<char>(charArr, 0, size - 2);    printArr<char>(charArr, 0, size - 2 );   //有一个空字符}</code></pre><p>我们需要留意一下普通函数调用和函数模板的区别</p><ol><li>普通函数调用可以发生自动类型转换（隐式类型转换）</li><li>函数模板调用时，如果利用自动类型推导，不会发生隐形类型转换</li><li>如果利用显示制定类型的方式，可以发生隐式类型转换，相当于普通函数</li></ol><p>总结一下推荐做法</p><blockquote><p>为了避免二义性，提供函数模板，就不要提供普通函数</p><p>建议使用显示制定类型的方式，调用函数模板</p><p>使用模板时必须确定出通用数据类型T，并且能够推导出一致的类型</p></blockquote><p>之后对函数模板加深理解之后会继续补充函数模板的知识</p><p>学识粗浅写作仓促，如有错误辛苦评论或 <a href="babyruth2403144@163.com">邮件</a> 指出，欢迎交流！</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 算法学习 </tag>
+            
+            <tag> C++ </tag>
+            
+            <tag> 随笔 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>第25封信</title>
       <link href="/2021/09/25/di-25-feng-xin/"/>
       <url>/2021/09/25/di-25-feng-xin/</url>

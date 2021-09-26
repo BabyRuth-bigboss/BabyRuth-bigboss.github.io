@@ -6,7 +6,7 @@
   <link href="http://babyruth-bigboss.github.io/atom.xml" rel="self"/>
   
   <link href="http://babyruth-bigboss.github.io/"/>
-  <updated>2021-09-25T14:34:03.025Z</updated>
+  <updated>2021-09-26T14:27:00.894Z</updated>
   <id>http://babyruth-bigboss.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>函数模板封装排序算法</title>
+    <link href="http://babyruth-bigboss.github.io/2021/09/26/han-shu-mo-ban-feng-zhuang-kuai-su-pai-xu-he-gui-bing-pai-xu/"/>
+    <id>http://babyruth-bigboss.github.io/2021/09/26/han-shu-mo-ban-feng-zhuang-kuai-su-pai-xu-he-gui-bing-pai-xu/</id>
+    <published>2021-09-26T14:01:32.000Z</published>
+    <updated>2021-09-26T14:27:00.894Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;随笔&quot;&gt;&lt;a href=&quot;#随笔&quot; class=&quot;headerlink&quot; title=&quot;随笔&quot;&gt;&lt;/a&gt;随笔&lt;/h1&gt;&lt;p&gt;先直接给出我写的测试代码&lt;/p&gt;
+&lt;pre class=&quot; language-C++&quot;&gt;&lt;code</summary>
+        
+      
+    
+    
+    
+    <category term="算法" scheme="http://babyruth-bigboss.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="算法学习" scheme="http://babyruth-bigboss.github.io/tags/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="C++" scheme="http://babyruth-bigboss.github.io/tags/C/"/>
+    
+    <category term="随笔" scheme="http://babyruth-bigboss.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
   
   <entry>
     <title>第25封信</title>

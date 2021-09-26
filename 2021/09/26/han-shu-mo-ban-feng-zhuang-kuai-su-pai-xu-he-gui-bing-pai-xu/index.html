@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, babyRuth的妙妙屋">
+    <meta name="keywords" content="函数模板封装排序算法, babyRuth的妙妙屋">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hello World | babyRuth的妙妙屋</title>
+    <title>函数模板封装排序算法 | babyRuth的妙妙屋</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -420,12 +420,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hello World</h1>
+                    <h1 class="description center-align post-title">函数模板封装排序算法</h1>
                 </div>
             </div>
         </div>
@@ -539,12 +539,33 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">算法学习</span>
+                            </a>
+                        
+                            <a href="/tags/C/">
+                                <span class="chip bg-color">C++</span>
+                            </a>
+                        
+                            <a href="/tags/%E9%9A%8F%E7%AC%94/">
+                                <span class="chip bg-color">随笔</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                算法
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -553,21 +574,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-09-20
+                    2021-09-26
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-20
+                    2021-09-26
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    73
+                    168
                 </div>
                 
 
@@ -594,19 +615,153 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span>
+                <h1 id="随笔"><a href="#随笔" class="headerlink" title="随笔"></a>随笔</h1><p>先直接给出我写的测试代码</p>
+<pre class=" language-C++"><code class="language-C++">/* ************************************************************************
+> File Name:     template.cpp
+> Author:        babyruth
+> Created Time:  Sun Sep 26 21:15:18 2021
+> Description:   使用函数模板封装快速排序和归并排序
+ ************************************************************************/
+
+
+#include<iostream>
+using namespace std;
+
+const int N = 1e6 + 10;
+
+template<typename T>
+void mySwap(T& a, T& b) {
+    T temp = a;
+    a = b;
+    b = temp;
+}
+
+template<typename T>
+void quick_sort(T q[], int l, int r) {
+    if (l >= r) return;
+    int i = l - 1, j = r + 1, x = q[l + r >> 1];
+    while (i < j) {
+        do i++; while (q[i] < x);
+        do j--; while (q[j] > x);
+        if (i < j)  mySwap(q[i], q[j]);
+    }
+    quick_sort(q, l, j), quick_sort(q, j + 1, r);
+}
+
+template<typename T>
+void merge_sort(T q[], T temp[], int l, int r) {
+    if (l >= r) return;
+    int mid = l + r >> 1;
+    merge_sort(q, temp, l, mid);
+    merge_sort(q, temp, mid + 1, r);
+    int k = 0, i = l, j = mid + 1;
+    while (i <= mid && j <= r) {
+        if (q[i] <= q[j])   temp[k++] = q[i++];
+        else temp[k++] = q[j++];
+    }
+    while (i <= mid)    temp[k++] = q[i++];
+    while (j <= r)  temp[k++] = q[j++];
+
+    for (i = l, j = 0; i <= r; i++, j++)    q[i] = temp[j];
+}
+
+template<typename T>
+void printArr(T arr[], int l, int r) {
+
+    for (int i = 0; i < r; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+    cout << "数组中的元素个数为 "<< r << endl;
+}
+
+void test01() {
+    char charArr[] = "bagdakfasd";
+    int size = sizeof(charArr) / sizeof(char);
+    cout << "快速排序" << endl;
+    quick_sort(charArr, 0, size - 2);
+    printArr(charArr, 0, size - 2);    //有一个空字符
+}
+
+void test02() {
+    int intArr[] = { 1, 5, 6, 3, 7, 4, 8, 9};
+    int size = sizeof(intArr) / sizeof(int);
+    quick_sort(intArr, 0, size - 1);
+    
+    cout << "快速排序" << endl;
+    printArr(intArr, 0, size - 1);    
+}
+
+void test03() {
+    char charArr[] = "bagdakfasd";
+    int size = sizeof(charArr) / sizeof(char);
+    char temp[N];
+    cout << "归并排序" << endl;
+    merge_sort(charArr, temp, 0, size - 2);
+    printArr(charArr, 0, size - 2);    //有一个空字符
+}
+
+void test04() {
+    int intArr[] = { 1, 5, 6, 3, 7, 4, 8, 9};
+    int size = sizeof(intArr) / sizeof(int);
+    int temp[N];
+    cout << "归并排序" << endl;
+    merge_sort(intArr, temp, 0, size - 1);
+    printArr(intArr, 0, size - 1);    
+}
+int main() {
+    test01();
+    test03();
+    test02();
+    test04();
+    return 0;
+}
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server
+<p>Linux下输入</p>
+<pre class=" language-bash"><code class="language-bash">g++ template.cpp -o <span class="token function">test</span> <span class="token operator">&amp;&amp;</span> ./test
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate
+<p>得到输出为</p>
+<pre class=" language-bash"><code class="language-bash">快速排序
+a a a b d d f g k 
+数组中的元素个数为 9
+归并排序
+a a a b d d f g k 
+数组中的元素个数为 9
+快速排序
+1 3 4 5 6 7 8 
+数组中的元素个数为 7
+归并排序
+1 3 4 5 6 7 8 
+数组中的元素个数为 7
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy
+<blockquote>
+<p>使用函数模板必须确定出通用的数据类型T，并且可以推导出一致的类型</p>
+<p>模板必须要确定出T的数据类型，才可以使用</p>
+</blockquote>
+<p>C++中我们使用函数模板有两种方式：自动类型推导和显示制定类型</p>
+<p>我在上述代码中使用的是自动类型推导，不过建议是使用显示指定类型的方式，例如将<code>test01</code> 函数中的函数调用的表达式加上制定的类型，如下</p>
+<pre class=" language-C++"><code class="language-C++">void test01() {
+    char charArr[] = "bagdakfasd";
+    int size = sizeof(charArr) / sizeof(char);
+    cout << "快速排序" << endl;
+    quick_sort<char>(charArr, 0, size - 2);
+    printArr<char>(charArr, 0, size - 2 );   //有一个空字符
+}
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>我们需要留意一下普通函数调用和函数模板的区别</p>
+<ol>
+<li>普通函数调用可以发生自动类型转换（隐式类型转换）</li>
+<li>函数模板调用时，如果利用自动类型推导，不会发生隐形类型转换</li>
+<li>如果利用显示制定类型的方式，可以发生隐式类型转换，相当于普通函数</li>
+</ol>
+<p>总结一下推荐做法</p>
+<blockquote>
+<p>为了避免二义性，提供函数模板，就不要提供普通函数</p>
+<p>建议使用显示制定类型的方式，调用函数模板</p>
+<p>使用模板时必须确定出通用数据类型T，并且能够推导出一致的类型</p>
+</blockquote>
+<p>之后对函数模板加深理解之后会继续补充函数模板的知识</p>
+<p>学识粗浅写作仓促，如有错误辛苦评论或 <a href="babyruth2403144@163.com">邮件</a> 指出，欢迎交流！</p>
 
                 
             </div>
@@ -633,7 +788,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://BabyRuth-bigboss.github.io/2021/09/20/hello-world/">http://BabyRuth-bigboss.github.io/2021/09/20/hello-world/</a>
+                    <a href="http://BabyRuth-bigboss.github.io/2021/09/26/han-shu-mo-ban-feng-zhuang-kuai-su-pai-xu-he-gui-bing-pai-xu/">http://BabyRuth-bigboss.github.io/2021/09/26/han-shu-mo-ban-feng-zhuang-kuai-su-pai-xu-he-gui-bing-pai-xu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -670,7 +825,19 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">算法学习</span>
+                                </a>
+                            
+                                <a href="/tags/C/">
+                                    <span class="chip bg-color">C++</span>
+                                </a>
+                            
+                                <a href="/tags/%E9%9A%8F%E7%AC%94/">
+                                    <span class="chip bg-color">随笔</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -840,41 +1007,43 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/09/20/suan-fa-xue-xi-ri-li/">
+                <a href="/2021/09/26/han-shu-mo-ban-feng-zhuang-kuai-su-pai-xu-he-gui-bing-pai-xu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="算法学习日历">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="函数模板封装排序算法">
                         
-                        <span class="card-title">算法学习日历</span>
+                        <span class="card-title">函数模板封装排序算法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            目前算法学习的进度统计，是属于我自己的一篇流水账，记录仅仅是为了自己学习过程中进行调整，不具有参考意义。
+                            今天学了一下快排和归并排序的算法模板， 晚上又复习了一下C++函数模板，所以诞生了这篇用函数模板封装排序模板的测试（套娃）
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-09-20
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-26
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%80%BB%E5%8A%A8%E5%91%98%E7%AF%87/" class="post-category">
-                                    总动员篇
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -882,8 +1051,12 @@
                         <span class="chip bg-color">算法学习</span>
                     </a>
                     
-                    <a href="/tags/%E6%97%A5%E8%AE%B0/">
-                        <span class="chip bg-color">日记</span>
+                    <a href="/tags/C/">
+                        <span class="chip bg-color">C++</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%9A%8F%E7%AC%94/">
+                        <span class="chip bg-color">随笔</span>
                     </a>
                     
                 </div>
@@ -894,37 +1067,52 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/09/20/hello-world/">
+                <a href="/2021/09/25/di-25-feng-xin/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="第25封信">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">第25封信</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            洛克菲勒有着他自己的传奇人生，我们无可复制，不过我们可以学习巨人的思想，站在巨人的肩膀上
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-25
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            babyRuth
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%B4%9B%E5%85%8B%E8%8F%B2%E5%8B%92%E5%86%99%E7%BB%99%E5%84%BF%E5%AD%90%E7%9A%8438%E5%B0%81%E4%BF%A1/" class="post-category">
+                                    洛克菲勒写给儿子的38封信
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">读书笔记</span>
+                    </a>
+                    
+                    <a href="/tags/%E4%BA%BA%E7%94%9F%E8%A7%82/">
+                        <span class="chip bg-color">人生观</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
