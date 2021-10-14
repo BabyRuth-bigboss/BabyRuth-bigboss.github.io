@@ -30,9 +30,9 @@
     <script src="/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="babyRuth的妙妙屋" type="application/atom+xml">
-
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+</head>
 
 
 
@@ -584,14 +584,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.6k
+                    4.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    17 分
+                    18 分
                 </div>
                 
 
@@ -671,7 +671,7 @@
 <p>2021/8/28 二叉树 小问题，map的顺序。26，27，28，29，30，31(迭代法先没写，二刷再写) 昨晚睡的还行，状态好很多。麻了。106道题了，今天的每日一题，真的太简单了。</p>
 <p>2021/8/29 完成二叉树，只剩最后三道题了。leetcode669 这道题玩我，为什么会有奇怪的输入递归可以通过但是输入还是报错？？迭代法就不行？？。问题找到了。108只写了递归法（迭代法留到二刷）。二叉树全部习题结束。</p>
 <pre class=" language-C++"><code class="language-C++">class Solution {//迭代法，未通过代码。问题已经找到，是什么呢？？！！！！！！
-        while (root != nullptr && root->val < low || root->val > high)
+        while (root != nullptr &amp;&amp; root-&gt;val &lt; low || root-&gt;val &gt; high)
 </code></pre>
 <h2 id="回溯算法-一轮用时3天-麻了9-6已经把回溯忘完了。"><a href="#回溯算法-一轮用时3天-麻了9-6已经把回溯忘完了。" class="headerlink" title="回溯算法 一轮用时3天 麻了9.6已经把回溯忘完了。"></a>回溯算法 一轮用时3天 麻了9.6已经把回溯忘完了。</h2><p>2021/8/30 开始回溯算法1，2，3，4，5，，7，8进行了8节，然后做了5道题，题目思路想法较为统一，熟练掌握即可。解决了115道题了。</p>
 <p>2021/8/31 回溯算法 9，10，11，，13，14，15，16 完成，已经完成122道题。</p>
@@ -721,8 +721,9 @@
 <p>2021/10/11  acwing基础课 早看完贪心第二课，贪心练习模板，贪心一刷完结，代码难度较低，但是证明思路一定要明确，证明要二刷 <strong>贪心用时2个半天，已经完成8/8</strong> ,开启薄弱环节 <strong>搜索与图论</strong>    ，已经完成   0 + 6 ?/17, 共计已经完成 <strong>57/106</strong> ,下午练习了dfs的两道模板提，晚上再看bfs的两道模板题 已经完成   2 /17，走迷宫还能瞅瞅，八数码问题实属抽象。</p>
 <p>2021/10/12  acwing基础课 中午起床，先写了走迷宫问题(easy)，然后看了并写了树的重心问题（hard），然后看了并写了图中点的层次问题(easy) 然后看了并写了又向图的拓扑序列，搜索视频一完结，已经完成6/17 ,顺便写了leetcode课表二，就是拓扑排序的问题。开始看搜索视频二，就是求最短路了。晚上看了Dijkstra的朴素版本和堆优化版本，明天早上默写</p>
 <p>2021/10/13  acwing基础课 中午起床默写了两道题，开始学习bellman-ford、spfa、floyd算法 已经完成 9/17 ,bellman-ford练习模板。spfa和Floyd的三道题明早默写。  看完了搜索与图论 二 明晚看 三，争取后天结束图论 用时预计 6天</p>
+<p>2021/10/14  acwing基础课 早默写三道题 用时1.5h 已经完成 12/17 看第三课了 看了prim 和kruskal算法，之后看二分图的染色法和匈牙利法。结束图论的课程。明早练习这四道题。</p>
 <p>today!</p>
-<p>2021/10/14  acwing基础课 已经完成 6/106 练习模板题: 看课程，然后学习一下算法:</p>
+<p>2021/10/15  acwing基础课 练习prim kruskal 染色法 匈牙利算法 <strong>搜索与图论用时六天，完成 16/17</strong> 还有一道八数码问题没有写出来，开始数学专题，预计一周</p>
 <p><strong>二轮over</strong> </p>
 <hr>
 
@@ -1247,7 +1248,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">7.2k</span>
+                        class="white-color">8.1k</span>
             
             
             

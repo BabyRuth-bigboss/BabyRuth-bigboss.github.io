@@ -30,9 +30,9 @@
     <script src="/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="babyRuth的妙妙屋" type="application/atom+xml">
-
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+</head>
 
 
 
@@ -580,7 +580,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    382
+                    387
                 </div>
                 
 
@@ -638,9 +638,7 @@ int ext;
  */
 extern int ext; //用的是file1.cpp的ext,这是一个声明
 int main(){
-    std::cout<<(ext+10)<<std::endl;
-}
-</code></pre>
+    std::cout&lt;&lt;(ext+10)&lt;<std::endl; &#125;="" <="" code=""></std::endl;></iostream></code></pre><code class="language-C++">
 <blockquote>
 <p>非<code>const</code>变量默认为<code>extern</code>，未被<code>const</code>修饰的变量定义时无需<code>extern</code>显式定义</p>
 </blockquote>
@@ -655,9 +653,7 @@ extern const int ext=12;
  */
 extern const int ext;
 int main(){
-    std::cout<<ext<<std::endl;
-}
-</code></pre>
+    std::cout&lt;<ext<<std::endl; &#125;="" <="" code=""></ext<<std::endl;></iostream></code></pre><code class="language-C++">
 <blockquote>
 <p>const常量定义初始化，需要显式声明</p>
 </blockquote>
@@ -680,18 +676,18 @@ using namespace std;
 int main(){
     int a  = 10;
     int b= 20;
-    int* const ptr1 = &a;
+    int* const ptr1 = &amp;a;
     *ptr1 = 15;
-    // ptr1 = &b;   // error: assignment of read-only variable ‘ptr1’
+    // ptr1 = &amp;b;   // error: assignment of read-only variable ‘ptr1’
     const int* ptr2;
-    ptr2 = &a;
-    ptr2 = &b;
+    ptr2 = &amp;a;
+    ptr2 = &amp;b;
     // *ptr2 = 100;    //error: assignment of read-only location ‘* ptr2’
-    cout << *ptr1 << endl;
-    cout << *ptr2 << endl;
+    cout &lt;&lt; *ptr1 &lt;&lt; endl;
+    cout &lt;&lt; *ptr2 &lt;&lt; endl;
     return 0;
 }
-</code></pre>
+</iostream></code></pre>
 <blockquote>
 <p>总结：</p>
 <p>常量指针如ptr1，Ptr1的值是一个地址，地址不能改，<strong>常量指针不是常量！</strong>，是const限定的变量</p>
@@ -707,7 +703,7 @@ void func(int* const var);//指针本身不可变
 <h3 id="有意义的情况"><a href="#有意义的情况" class="headerlink" title="有意义的情况"></a>有意义的情况</h3><pre class=" language-C++"><code class="language-C++">const int* func1(); //返回指向常量的指针，指针指向的内容不会因为这个指针发生变化（相当于这个指针是只读指针）
 int* const fun2(); //返回常量指针，指向不会变，指针本省不可变
 void StringCopy(char* dst, const char* src);//函数体内不能更改src的内容
-void func(const A& a)//参数为引用，增加效率同时防止修改
+void func(const A&amp; a)//参数为引用，增加效率同时防止修改
 </code></pre>
 <p> 引用就是一个常量指针，指向不能变</p>
 <p> <code>引用传递</code> 不会产生临时对象</p>
@@ -724,7 +720,7 @@ void func(const A& a)//参数为引用，增加效率同时防止修改
 </blockquote>
 <p><strong>常成员函数</strong>：使用const关键字进行说明的成员函数，<strong>只有</strong>常成员函数可以操作常量或常对象</p>
 <p>学识粗浅写作仓促，如有错误辛苦评论或 <a href="babyruth2403144@163.com">邮件</a> 指出，欢迎交流！</p>
-
+</code></code>
                 
             </div>
             <hr/>
@@ -1262,7 +1258,7 @@ void func(const A& a)//参数为引用，增加效率同时防止修改
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">7.2k</span>
+                        class="white-color">8.1k</span>
             
             
             
