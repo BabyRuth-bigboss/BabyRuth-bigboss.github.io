@@ -29,10 +29,10 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="babyRuth的妙妙屋" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<meta name="generator" content="Hexo 5.4.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-</head>
+<link rel="alternate" href="/atom.xml" title="babyRuth的妙妙屋" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 
@@ -588,14 +588,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    955
+                    168
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    1 分
                 </div>
                 
 
@@ -617,10 +617,10 @@
             <div id="articleContent">
                 <h1 id="随笔"><a href="#随笔" class="headerlink" title="随笔"></a>随笔</h1><p>先直接给出我写的测试代码</p>
 <pre class=" language-C++"><code class="language-C++">/* ************************************************************************
-&gt; File Name:     template.cpp
-&gt; Author:        babyruth
-&gt; Created Time:  Sun Sep 26 21:15:18 2021
-&gt; Description:   使用函数模板封装快速排序和归并排序
+> File Name:     template.cpp
+> Author:        babyruth
+> Created Time:  Sun Sep 26 21:15:18 2021
+> Description:   使用函数模板封装快速排序和归并排序
  ************************************************************************/
 
 
@@ -629,56 +629,56 @@ using namespace std;
 
 const int N = 1e6 + 10;
 
-template<typename t="">
-void mySwap(T&amp; a, T&amp; b) {
+template<typename T>
+void mySwap(T& a, T& b) {
     T temp = a;
     a = b;
     b = temp;
 }
 
-template<typename t="">
+template<typename T>
 void quick_sort(T q[], int l, int r) {
-    if (l &gt;= r) return;
-    int i = l - 1, j = r + 1, x = q[l + r &gt;&gt; 1];
-    while (i &lt; j) {
-        do i++; while (q[i] &lt; x);
-        do j--; while (q[j] &gt; x);
-        if (i &lt; j)  mySwap(q[i], q[j]);
+    if (l >= r) return;
+    int i = l - 1, j = r + 1, x = q[l + r >> 1];
+    while (i < j) {
+        do i++; while (q[i] < x);
+        do j--; while (q[j] > x);
+        if (i < j)  mySwap(q[i], q[j]);
     }
     quick_sort(q, l, j), quick_sort(q, j + 1, r);
 }
 
-template<typename t="">
+template<typename T>
 void merge_sort(T q[], T temp[], int l, int r) {
-    if (l &gt;= r) return;
-    int mid = l + r &gt;&gt; 1;
+    if (l >= r) return;
+    int mid = l + r >> 1;
     merge_sort(q, temp, l, mid);
     merge_sort(q, temp, mid + 1, r);
     int k = 0, i = l, j = mid + 1;
-    while (i &lt;= mid &amp;&amp; j &lt;= r) {
-        if (q[i] &lt;= q[j])   temp[k++] = q[i++];
+    while (i <= mid && j <= r) {
+        if (q[i] <= q[j])   temp[k++] = q[i++];
         else temp[k++] = q[j++];
     }
-    while (i &lt;= mid)    temp[k++] = q[i++];
-    while (j &lt;= r)  temp[k++] = q[j++];
+    while (i <= mid)    temp[k++] = q[i++];
+    while (j <= r)  temp[k++] = q[j++];
 
-    for (i = l, j = 0; i &lt;= r; i++, j++)    q[i] = temp[j];
+    for (i = l, j = 0; i <= r; i++, j++)    q[i] = temp[j];
 }
 
-template<typename t="">
+template<typename T>
 void printArr(T arr[], int l, int r) {
 
-    for (int i = 0; i &lt; r; i++) {
-        cout &lt;&lt; arr[i] &lt;&lt; " ";
+    for (int i = 0; i < r; i++) {
+        cout << arr[i] << " ";
     }
-    cout &lt;&lt; endl;
-    cout &lt;&lt; "数组中的元素个数为 "&lt;&lt; r &lt;&lt; endl;
+    cout << endl;
+    cout << "数组中的元素个数为 "<< r << endl;
 }
 
 void test01() {
     char charArr[] = "bagdakfasd";
     int size = sizeof(charArr) / sizeof(char);
-    cout &lt;&lt; "快速排序" &lt;&lt; endl;
+    cout << "快速排序" << endl;
     quick_sort(charArr, 0, size - 2);
     printArr(charArr, 0, size - 2);    //有一个空字符
 }
@@ -688,7 +688,7 @@ void test02() {
     int size = sizeof(intArr) / sizeof(int);
     quick_sort(intArr, 0, size - 1);
     
-    cout &lt;&lt; "快速排序" &lt;&lt; endl;
+    cout << "快速排序" << endl;
     printArr(intArr, 0, size - 1);    
 }
 
@@ -696,7 +696,7 @@ void test03() {
     char charArr[] = "bagdakfasd";
     int size = sizeof(charArr) / sizeof(char);
     char temp[N];
-    cout &lt;&lt; "归并排序" &lt;&lt; endl;
+    cout << "归并排序" << endl;
     merge_sort(charArr, temp, 0, size - 2);
     printArr(charArr, 0, size - 2);    //有一个空字符
 }
@@ -705,7 +705,7 @@ void test04() {
     int intArr[] = { 1, 5, 6, 3, 7, 4, 8, 9};
     int size = sizeof(intArr) / sizeof(int);
     int temp[N];
-    cout &lt;&lt; "归并排序" &lt;&lt; endl;
+    cout << "归并排序" << endl;
     merge_sort(intArr, temp, 0, size - 1);
     printArr(intArr, 0, size - 1);    
 }
@@ -716,7 +716,7 @@ int main() {
     test04();
     return 0;
 }
-</typename></typename></typename></typename></iostream></code></pre>
+</code></pre>
 <p>Linux下输入</p>
 <pre class=" language-bash"><code class="language-bash">g++ template.cpp -o <span class="token function">test</span> <span class="token operator">&amp;&amp;</span> ./test
 </code></pre>
@@ -743,11 +743,11 @@ a a a b d d f g k
 <pre class=" language-C++"><code class="language-C++">void test01() {
     char charArr[] = "bagdakfasd";
     int size = sizeof(charArr) / sizeof(char);
-    cout &lt;&lt; "快速排序" &lt;&lt; endl;
+    cout << "快速排序" << endl;
     quick_sort<char>(charArr, 0, size - 2);
     printArr<char>(charArr, 0, size - 2 );   //有一个空字符
 }
-</char></char></code></pre>
+</code></pre>
 <p>我们需要留意一下普通函数调用和函数模板的区别</p>
 <ol>
 <li>普通函数调用可以发生自动类型转换（隐式类型转换）</li>
@@ -1314,7 +1314,7 @@ a a a b d d f g k
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">8.1k</span>
+                        class="white-color">7.4k</span>
             
             
             
